@@ -6,4 +6,4 @@ packages:
   - yum-utils
 httpd_svc: httpd
 httpd_group: apache
-web_content: "This is JEN's Webserver"
+web_content: "This is MY  Webserver"
