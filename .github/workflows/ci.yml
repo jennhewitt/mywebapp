@@ -1,0 +1,27 @@
+---
+name: CI
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Molecule
+    runs-on: rhel8
+  steps:
+    - name: Check out the codebase.
+      uses: actions/checkout@v2
+    - name: set up python 3
+      uses: acttions/settup-python@v2
+        with:
+          python-version: '3.x'
+    - name: Install test dependanies
+      run: pip3 install molecule[podman] yalmlint ansible-lint
+    - name: Run molecule tests       
+      run: molecule test
+      env:
+        PY_COLORS:"1"
+        ANSIBLE_FORCE_COLOR: '1'
+
