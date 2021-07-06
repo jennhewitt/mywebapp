@@ -15,8 +15,8 @@ jobs:
       uses: actions/checkout@v2
     - name: set up python 3
       uses: acttions/settup-python@v2
-        with:
-          python-version: '3.x'
+      with:
+        python-version: '3.x'
     - name: Install test dependanies
       run: pip3 install molecule[podman] yalmlint ansible-lint
     - name: Run molecule tests       
