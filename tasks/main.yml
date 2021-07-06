@@ -1,0 +1,22 @@
+---
+# tasks file for mywebapp
+- name: Os specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+- name: Install packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ packages }}"
+- name: enable httpd
+  service:
+    name: "{{ httpd_svc }}"
+    enabled: true
+    state: started
+   
+- name: html index file
+  copy:
+    dest: /var/www/html/index.html
+    owner: root
+    group: "{{ httpd_group }}"
+    content: "{{ web_content }}"
