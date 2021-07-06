@@ -1,0 +1,9 @@
+---
+# vars file for mywebapp
+packages:
+  - httpd
+  - firewalld
+  - yum-utils
+httpd_svc: httpd
+httpd_group: apache
+web_content: "This is JEN's Webserver"
